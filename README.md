@@ -13,3 +13,6 @@ We are building this to give students a way to find their way around campus quic
 
 ## How is the repository organized? 
 The README file will explain everything about the repository. We will use GitHub Pages to organize our work and minimize clutter.
+
+## Meeting times and daily scrum meetings
+We will try to meet daily in the Newlin lobby study room at around 5pm each day. 
