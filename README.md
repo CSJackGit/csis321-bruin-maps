@@ -54,9 +54,13 @@ List of professor office hours (id, building id, office id) (stretch goal)
 List of buildings to other buildings times (startpoint building id, list of endpoints each with building id and time/distance)
 
 ## 2. Software Design
-Module Decomposition Diagram for the system: https://drive.google.com/file/d/16HyW4uy6QwhH16MoAh6iGv81PW7lAzR-/view?usp=sharing 
+Module Decomposition Diagram for the system ( [Link](https://drive.google.com/file/d/16HyW4uy6QwhH16MoAh6iGv81PW7lAzR-/view?usp=sharing 
+) ): 
+<img width="712" height="851" alt="ModuleDecompDiagram" src="https://github.com/user-attachments/assets/93013dc2-4b99-41a5-b924-06c2bd5dab20" />
+#
+A detailed and complete ER model ( [Link](https://drive.google.com/file/d/1ETXe6aMgQavHUbSKfs20tvf6qdLKRKTI/view?usp=drive_link) ):
 
-A detailed and complete ER model: https://drive.google.com/file/d/1ETXe6aMgQavHUbSKfs20tvf6qdLKRKTI/view?usp=drive_link
+<img width="753" height="626" alt="ER Diagram drawio" src="https://github.com/user-attachments/assets/da978c85-5b8f-4ca2-a41c-b3e0b119def8" />
 
 ## 3. Coding Guidelines
 JavaScript: https://www.w3schools.com/js/default.asp
