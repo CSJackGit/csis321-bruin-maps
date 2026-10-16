@@ -38,7 +38,7 @@ List of professor office hours (id, building id, office id) (stretch goal)
 List of buildings to other buildings times (startpoint building id, list of endpoints each with building id and time/distance)
 ## 2. Software Design
 Module Decomposition Diagram for the system: https://drive.google.com/file/d/16HyW4uy6QwhH16MoAh6iGv81PW7lAzR-/view?usp=sharing 
-A detailed and complete ER model: ER Diagram
+A detailed and complete ER model: https://drive.google.com/file/d/1ETXe6aMgQavHUbSKfs20tvf6qdLKRKTI/view?usp=drive_link
 
 ## 3. Coding Guidelines
 JavaScript: JavaScript Style Guide
