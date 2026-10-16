@@ -47,6 +47,6 @@ Module Decomposition Diagram for the system: https://drive.google.com/file/d/16H
 A detailed and complete ER model: https://drive.google.com/file/d/1ETXe6aMgQavHUbSKfs20tvf6qdLKRKTI/view?usp=drive_link
 
 ## 3. Coding Guidelines
-JavaScript: JavaScript Style Guide
+JavaScript: https://www.w3schools.com/js/default.asp
 HTML & CSS: HTML/CSS Style Guide
 SQL: SQL style guide
