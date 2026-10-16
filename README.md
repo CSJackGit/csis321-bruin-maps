@@ -48,5 +48,5 @@ A detailed and complete ER model: https://drive.google.com/file/d/1ETXe6aMgQavHU
 
 ## 3. Coding Guidelines
 JavaScript: https://www.w3schools.com/js/default.asp
-HTML & CSS: HTML/CSS Style Guide
-SQL: SQL style guide
+HTML & CSS: https://www.w3schools.com/html/html5_syntax.asp
+SQL: https://www.w3schools.com/sql/default.asp
