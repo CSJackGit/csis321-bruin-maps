@@ -32,21 +32,35 @@ A menu allowing users to add and select the order of a route they’d like to cr
 Zoom & drag features to navigate the map.
 
 Interfaces: 
+
 You should be able to build a list of places you’d like to visit and the order in which you’d like to visit them. You’d then send the list in that order to the api which would process & calculate the best route and send it back to the client. Similarly, on website load, the website should request a list of all valid locations, and the client will do the processing for searching that list.
+
 The website needs to receive:
+
 List of available locations to search from api/database.
-Best path after requesting with the list of locations to visit.
+
+Best path after requesting the list of locations to visit.
+
 Receive a list of all professor office locations & hours, provided a valid authentication token was provided to the server (stretch goal).
+
 Stored Data
+
 Tables with:
+
 List of valid locations (id, name)
+
 List of professor office hours (id, building id, office id) (stretch goal)
+
 List of buildings to other buildings times (startpoint building id, list of endpoints each with building id and time/distance)
+
 ## 2. Software Design
 Module Decomposition Diagram for the system: https://drive.google.com/file/d/16HyW4uy6QwhH16MoAh6iGv81PW7lAzR-/view?usp=sharing 
+
 A detailed and complete ER model: https://drive.google.com/file/d/1ETXe6aMgQavHUbSKfs20tvf6qdLKRKTI/view?usp=drive_link
 
 ## 3. Coding Guidelines
 JavaScript: https://www.w3schools.com/js/default.asp
+
 HTML & CSS: https://www.w3schools.com/html/html5_syntax.asp
+
 SQL: https://www.w3schools.com/sql/default.asp
