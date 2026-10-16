@@ -18,7 +18,7 @@ The README file will explain everything about the repository. We will use GitHub
 We will try to meet daily in the Newlin lobby study room at around 5pm each day. 
 
 
-##1. Software Architecture
+## 1. Software Architecture
 Components: 
 The website, api, and database need to be hosted online.
 A search bar letting users find and select locations, with recommendations. 
@@ -36,11 +36,11 @@ Tables with:
 List of valid locations (id, name)
 List of professor office hours (id, building id, office id) (stretch goal)
 List of buildings to other buildings times (startpoint building id, list of endpoints each with building id and time/distance)
-##2. Software Design
+## 2. Software Design
 Module Decomposition Diagram for the system: https://drive.google.com/file/d/16HyW4uy6QwhH16MoAh6iGv81PW7lAzR-/view?usp=sharing 
 A detailed and complete ER model: ER Diagram
 
-##3. Coding Guidelines
+## 3. Coding Guidelines
 JavaScript: JavaScript Style Guide
 HTML & CSS: HTML/CSS Style Guide
 SQL: SQL style guide
