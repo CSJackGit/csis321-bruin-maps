@@ -20,11 +20,17 @@ We will try to meet daily in the Newlin lobby study room at around 5pm each day.
 
 ## 1. Software Architecture
 Components: 
+
 The website, api, and database need to be hosted online.
+
 A search bar letting users find and select locations, with recommendations. 
+
 A map of the campus, giving the names of locations and where they are.
+
 A menu allowing users to add and select the order of a route they’d like to create.
+
 Zoom & drag features to navigate the map.
+
 Interfaces: 
 You should be able to build a list of places you’d like to visit and the order in which you’d like to visit them. You’d then send the list in that order to the api which would process & calculate the best route and send it back to the client. Similarly, on website load, the website should request a list of all valid locations, and the client will do the processing for searching that list.
 The website needs to receive:
