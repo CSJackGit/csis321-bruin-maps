@@ -28,7 +28,7 @@ window.addEventListener('load', function() {
   });
 
   // 3. Attach standard web hover/click listeners to buildings
-  const buildings = svgDoc.querySelectorAll('rect[inkscape\\:label^="building-"], path[inkscape\\:label]');
+  const buildings = svgDoc.querySelectorAll('rect[inkscape\\:label^="building-"]');
   
   buildings.forEach(building => {
     building.style.cursor = 'pointer';
@@ -40,6 +40,26 @@ window.addEventListener('load', function() {
       // Clear previous highlights and assign new highlight class
       clearAllHighlights(svgDoc);
       e.target.classList.add('destination-highlight');
+    });
+  });
+
+
+  const paths = svgDoc.querySelectorAll('path[inkscape\\:label^="path_"]');
+
+  paths.forEach(path => {
+    path.classList.add("path");
+    path.style.cursor = 'pointer';
+
+    path.addEventListener('click', function(e) {
+        e.stopPropagation();
+
+        const clickedPath = e.currentTarget;
+        const label = clickedPath.getAttribute('inkscape:label');
+
+        console.log("Clicked on path", label);
+
+        clearAllHighlights(svgDoc);
+        clickedPath.classList.add('destination-highlight');
     });
   });
 });

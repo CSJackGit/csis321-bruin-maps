@@ -378,10 +378,10 @@ html, body { margin: 0; height: 100%; overflow: hidden; }
 #map .building:hover { fill: #f4c95d !important; }
 #map .building.selected { fill: #e07a5f !important; }
 
-#map .path {cursor: pointer; transition: fill .15s; }
-#map .path:hover {fill: #4586ff !important}
-#map .path.selected {fill: #000000 !important}
-
 #layer5 { pointer-events: none; }
 
 #layer2 path, #layer2 ellipse { fill: #f3efe6 !important; }
+
+#map .path {cursor: pointer; transition: fill .15s; }
+#map .path:hover {fill: #4586ff !important}
+#map .path.selected {fill: #000000 !important}
