@@ -10,13 +10,19 @@
   <div id="map"></div>
   <body>
     <div class="main-window" >
-      <div class = "search">...</div>
+      <div class = "search">
+        <input type="text" placeholder="Search Bruin Maps..">
+      </div>
       <div class="search-box" id="results"></div>
     </div>
     
 
 
     <script>
+      async function addToRoute()
+      {
+        console.log("Added to route");
+      }
       async function loadMap() {
         const res = await fetch('assets/drawing3.svg');
         mapEl.innerHTML = await res.text();
