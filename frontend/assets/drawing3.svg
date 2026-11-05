@@ -75,7 +75,8 @@
        height="8.7728252"
        x="41.610607"
        y="152.83542"
-       inkscape:label="building-hoover" /><rect
+       inkscape:label="building-hoover"
+       class ="interactive-shape"        /><rect
        style="display:inline;fill:#1a1a1a;fill-rule:evenodd;stroke-width:0.264583"
        id="rect2175"
        width="8.9802551"

@@ -28,3 +28,9 @@ a {
   font-family: "Inter-Bold";
   src: local("Inter-Bold");
 }
+
+.interactive-shape
+{
+  cursor: pointer;
+  transition: fill 0.2s ease, filter 0.2s ease;
+}
