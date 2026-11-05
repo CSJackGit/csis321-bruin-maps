@@ -192,7 +192,7 @@ function initClicks(svg) {
     if (svg.dataset.dragged === 'true') { 
         svg.dataset.dragged = 'false'; return;
     }
-    const el = e.target.closest('.building');
+    const el = e.target.closest('.building, .path');
     if (el) 
         selectBuilding(el.dataset.key);
   });
@@ -204,7 +204,7 @@ function initClicks(svg) {
  * @param {*} fly option for moving to the building on the map
  */
 function selectBuilding(key, fly = false) {
-  const el = byKey[key];
+  const el = byKey[key] || svg.querySelector(`.path[data-key="${key}"]`);
   if (!el) 
     return;
 
