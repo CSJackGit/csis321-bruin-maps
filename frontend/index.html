@@ -9,42 +9,20 @@
 <body>
   <div id="map"></div>
   <body>
-    <div class="main-window" ><div class="search-box" ><div class="search-box-location" ><div class="frame" ><div class="ellipse" ></div>
-    <div class="search-box" id="results"></div>
-    <p class="location-name" ><span class="text-wrapper" >Location Name<br/></span>
-      <span class="span" >Description<br/>Distance</span></p></div></div>
-      <div class="search-search" ><div class="text-wrapper-2" >Search Bruin Maps...</div></div>
-      <div class="route-container" ><div class="route" ><div class="ellipse-2" ></div>
-      <div class="frame-3" ></div>
-    <p class="p" ><span class="text-wrapper-3" >Location Name<br/></span>
-      <span class="text-wrapper-4" >Distance</span></p></div>
-      <div class="route" ><div class="ellipse-2" ></div>
-      <div class="frame-3" ></div>
-    <p class="p" ><span class="text-wrapper-3" >Location Name<br/></span>
-      <span class="text-wrapper-4" >Distance</span></p></div>
-      <div class="route" ><div class="ellipse-2" ></div>
-      <div class="frame-3" ></div>
-    <p class="p" ><span class="text-wrapper-3" >Location Name<br/></span>
-      <span class="text-wrapper-4" >Distance</span></p></div>
-      <div class="route" ><div class="ellipse-2" ></div>
-      <div class="frame-3" ></div>
-    <p class="p" ><span class="text-wrapper-3" >Location Name<br/></span>
-      <span class="text-wrapper-4" >Distance</span></p></div>
-      <div class="route" ><div class="ellipse-2" ></div>
-      <div class="frame-3" ></div>
-    <p class="p" ><span class="text-wrapper-3" >Location Name<br/></span>
-      <span class="text-wrapper-4" >Distance</span></p></div></div>
-      <div class="route-distance" ><div class="route-distance-2" ><p class="element-min-miles" ><span class="text-wrapper-5" >2 min </span>
-      <span class="text-wrapper-6" >(0.4 miles)</span></p>
-      <div class="div-wrapper" ><div class="text-wrapper-7" >GO</div></div></div></div>
-      <!--<div class="directions-container" ><img class="directions-arrow" src="img/directions-arrow.svg" />-->
-    <p class="text-wrapper-8" >Continue direction for X feet</p></div></div>
-    <script>
-      function addToRoute()
-      {
-        console.log("Added To Route");
-      }
+    <div class="main-window" >
+      <div class = "search">
+        <input type="text" placeholder="Search Bruin Maps..">
+      </div>
+      <div class="search-box" id="results"></div>
+    </div>
+    
 
+
+    <script>
+      async function addToRoute()
+      {
+        console.log("Added to route");
+      }
       async function loadMap() {
         const res = await fetch('assets/drawing3.svg');
         mapEl.innerHTML = await res.text();
@@ -52,6 +30,7 @@
         svg.removeAttribute('width');
         svg.removeAttribute('height');
 
+        // @TODO get user's location and pan to it
         const pz = svgPanZoom(svg, {
           zoomScaleSensitivity: 0.3,
           minZoom: 0.5,

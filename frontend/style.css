@@ -116,29 +116,29 @@
   font-size: 12px;
 }
 
-.main-window .search-search {
-  top: 26px;
-  height: 55px;
-  display: flex;
-  width: 435px;
+.main-window .search {
   position: absolute;
+  top: 26px;
   left: 23px;
+  width: 435px;
+  height: 55px;
+  box-sizing: border-box;
+  display: flex;
   background-color: #d7d7d7;
-  border: 10px solid;
-  border-color: #293652;
+  border: 10px solid #293652;
+  pointer-events: auto;
 }
 
-.main-window .text-wrapper-2 {
-  margin-top: 20px;
-  width: 117px;
-  height: 15px;
-  margin-left: 20px;
+.main-window .search input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0 10px;
   font-family: "Inter-Regular", Helvetica;
-  font-weight: 400;
-  color: #000000;
   font-size: 12px;
-  letter-spacing: 0;
-  line-height: normal;
+  color: #000;
 }
 
 .main-window .route-container {
