@@ -62,6 +62,12 @@ function tagElements() {
         byKey[key] = element;
     });
 
+    svg.querySelectorAll('[inkscape\\:label^="path_"]').forEch(element => {
+        const key = element.getAttribute('inkscape:label').slice('path_'.length);
+        element.classList.add("path");
+        element.dataset.key = key;
+    });
+
     svg.querySelectorAll('[inkscape\\:label^="name-"]').forEach(element => {
         element.classList.add('map-label');
         element.dataset.key = element.getAttribute('inkscape:label').slice('name-'.length);
