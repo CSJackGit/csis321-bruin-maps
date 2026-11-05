@@ -23,6 +23,7 @@
       {
         console.log("Added to route");
       }
+      
       async function loadMap() {
         const res = await fetch('assets/drawing3.svg');
         mapEl.innerHTML = await res.text();

@@ -43,7 +43,7 @@ async function loadMap() {
   fitToContent();
   initPanZoom(svg);
   initClicks(svg);
-  renderResults(Object.entries(BUILDINGS).map(([id, b]) => ({ id, ...b })));
+  renderResults();
 }
 
 /**
@@ -215,25 +215,32 @@ function selectBuilding(key, fly = false) {
   console.log('Selected', BUILDINGS[key]?.name ?? key);
 }
 
+// Gets the current input from the search box
+const searchInput = document.querySelector('.search input');
+
 /**
  * Has templated html code for each search location appearing in the search list
- * @param {*} list 
  */
-function renderResults(list) {
-  document.getElementById('results').innerHTML = list.map(l => `
-    <div class="search-box-location" data-id="${l.id}">
-      <button class="frame" onclick="addToRoute('${l.id}')">
-        <div class="ellipse"></div>
-        <div class="div"></div>
-        <div class="frame-2"></div>
-        <div class="add-stop">Add<br/>Stop</div>
-      </button>
-      <p class="location-name">
-        <span class="text-wrapper">${l.name}<br/></span>
-        <span class="span">${l.desc}<br/>Distance</span>
-      </p>
-    </div>`).join('');
+function renderResults() {
+    const filter = searchInput.value.trim().toLowerCase();
+    const newList = Object.entries(BUILDINGS).map(([id, b]) => ({ id, ...b})).filter(b=> b.name.toLowerCase().includes(filter));
+
+    document.getElementById('results').innerHTML = newList.map(l => `
+        <div class="search-box-location" data-id="${l.id}">
+        <button class="frame" onclick="addToRoute('${l.id}')">
+            <div class="ellipse"></div>
+            <div class="div"></div>
+            <div class="frame-2"></div>
+            <div class="add-stop">Add<br/>Stop</div>
+        </button>
+        <p class="location-name">
+            <span class="text-wrapper">${l.name}<br/></span>
+            <span class="span">${l.desc}<br/>Distance</span>
+        </p>
+        </div>`).join('');
 }
+
+searchInput.addEventListener('input', renderResults);
 
 /**
  * Gets an svg element by id
