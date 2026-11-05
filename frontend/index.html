@@ -11,9 +11,9 @@
   <div class="div" ></div>
   <div class="frame-2" ></div>
   <div class="add-stop" >Add<br/>Stop</div></div>
-  <p class="location-name" ><span class="text-wrapper" >Location Name<br/></span>
+  <div class="location-name" ><span class="text-wrapper" >Location Name<br/></span>
     <span class="span" >Description<br/>Distance</span></p></div>
-    <div class="search-box-location" ><div class="frame" ><div class="ellipse" ></div>
+    <div class="search-box-location" ><button onclick="addToRoute()" class="frame"  ><div class="ellipse" ></div>
     <div class="div" ></div>
     <div class="frame-2" ></div>
     <div class="add-stop" >Add<br/>Stop</div></div>
@@ -87,5 +87,12 @@
     <div class="div-wrapper" ><div class="text-wrapper-7" >GO</div></div></div></div>
     <div class="directions-container" ><img class="directions-arrow" src="img/directions-arrow.svg" />
   <p class="text-wrapper-8" >Continue direction for X feet</p></div></div>
+
+  <script>
+    function addToRoute()
+    {
+      console.log("Added To Route");
+    }
+  </script>
 </body>
 </html>
