@@ -65,3 +65,14 @@ window.highlightDestination = function(targetLabel) {
     console.warn(`Building with label "${targetLabel}" not found.`);
   }
 };
+
+// Add event listener directly to your parent layout map component
+document.getElementById('rect2189').addEventListener('click', function(e) {
+    // 1. Remove previous destination assignments across your layer elements
+    document.querySelectorAll('.interactive-shape').forEach(el => {
+        el.classList.remove('is-destination');
+    });
+
+    // 2. Assign active state rule directly to the targeted clicked rectangle element
+    this.classList.add('is-destination');
+});
