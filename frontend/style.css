@@ -38,6 +38,9 @@
   background-color: #4586ff;
   border-radius: 2px;
   overflow: hidden;
+  cursor: pointer;
+  border: none;
+  padding: 0;
 }
 
 .main-window .ellipse {
@@ -100,6 +103,8 @@
   font-size: 15px;
   letter-spacing: 0;
   line-height: normal;
+
+  pointer-events: none;
 }
 
 .main-window .text-wrapper {
@@ -302,6 +307,42 @@
   text-align: center;
   letter-spacing: 0;
   line-height: normal;
+}
+
+.main-window .interactive-shape
+{
+  cursor: pointer;
+  transition: fill 0.2s ease, filter 0.2s ease;
+}
+
+.main-window .interactive-shape:hover
+{
+  fill: #f50000 !important;
+  filter:drop-shadow(0px 2px 4px rgba(239, 235, 235, 0.3));
+}
+
+.main-window .interactive-shape.is-destination
+{
+  fill: #00ff55 !important;
+  filter: drop-shadow(0px 0px 8px #00ff00);
+}
+
+.main-window .interactive-shape
+{
+  cursor: pointer;
+  transition: fill 0.2s ease, filter 0.2s ease;
+}
+
+.main-window .interactive-shape:hover
+{
+  fill: #f50000 !important;
+  filter:drop-shadow(0px 2px 4px rgba(239, 235, 235, 0.3));
+}
+
+.main-window .interactive-shape.is-destination
+{
+  fill: #00ff55 !important;
+  filter: drop-shadow(0px 0px 8px #00ff00);
 }
 
 html, body { margin: 0; height: 100%; overflow: hidden; }
