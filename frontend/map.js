@@ -211,6 +211,7 @@ function selectBuilding(key, fly = false) {
     svg.flyTo(el);
 
   // Logs that a building was selected
+  // @TODO create a Local Storage Key/Value pair for a list of locations to add to the route
   console.log('Selected', BUILDINGS[key]?.name ?? key);
 }
 
@@ -244,4 +245,5 @@ document.getElementById('results').addEventListener('click', e => {
   selectBuilding(row.dataset.id, true);   // select and zoom to it
 });
 
+// loads Map on script load
 loadMap();
