@@ -38,6 +38,9 @@
   background-color: #4586ff;
   border-radius: 2px;
   overflow: hidden;
+  cursor: pointer;
+  border: none;
+  padding: 0;
 }
 
 .main-window .ellipse {
@@ -100,6 +103,8 @@
   font-size: 15px;
   letter-spacing: 0;
   line-height: normal;
+
+  pointer-events: none;
 }
 
 .main-window .text-wrapper {
