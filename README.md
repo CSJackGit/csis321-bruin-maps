@@ -15,7 +15,7 @@ We are building this to give students a way to find their way around campus quic
 The README file will explain everything about the repository. We will use GitHub Pages to organize our work and minimize clutter.
 
 ## Meeting times and daily scrum meetings
-We will try to meet daily in the Newlin lobby study room at around 5pm each day. 
+We will try to meet daily in the Newlin lobby study room at around 5:15pm each day. 
 
 
 ## 1. Software Architecture
@@ -25,7 +25,7 @@ The website, api, and database need to be hosted online.
 
 A search bar letting users find and select locations, with recommendations. 
 
-A map of the campus, giving the names of locations and where they are.
+A labeled map of the campus, giving the names of locations and where they are.
 
 A menu allowing users to add and select the order of a route they’d like to create.
 
@@ -68,3 +68,6 @@ JavaScript: https://www.w3schools.com/js/default.asp
 HTML & CSS: https://www.w3schools.com/html/html5_syntax.asp
 
 SQL: https://www.w3schools.com/sql/default.asp
+
+## 4. Assignment Plan
+We planned to implement as much as we could, scaling back from our ambitious goal of most of the campus to mostly focusing on the quad. This was with the intention to still get the point across of what we were trying to do, while also having a functional product by the end. So, when it came to assignments, we assigned Jack and Nathaniel to work on researching the SVG, and Nathaniel and David on implementing the buttons, however there was a lot of overlap of the assigned tasks, so we worked closely with one another. 
