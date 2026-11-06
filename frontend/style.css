@@ -357,7 +357,13 @@ html, body { width: 100%; height: 100%; margin: 0; height: 100%; overflow: hidde
   overflow: hidden;
   touch-action: none;
 }
+
 #map svg { width: 100%; height: 100%; display: block; touch-action: none; }
+
+#map .map-label
+{
+  pointer-events: none;
+}
 
 .main-window {
   background: transparent !important;
