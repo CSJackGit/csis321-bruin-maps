@@ -21,6 +21,7 @@ const BUILDINGS = {
   lemmons:    { name: 'Lemmons Center',         desc: '' },
   minthorn:   { name: 'Minthorn Hall',          desc: '' },
   chapel:     { name: 'Chapel',                 desc: '' },
+  edwards:    { name: 'Edwards Hall',           desc: 'Residence hall' },
 };
 
 //Map builde setup
