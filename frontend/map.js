@@ -233,12 +233,15 @@ function renderResults() {
 
     document.getElementById('results').innerHTML = newList.map(l => `
         <div class="search-box-location" data-id="${l.id}">
-        <button class="frame" onclick="addToRoute('${l.id}')">
+        <div class="frame">
             <div class="ellipse"></div>
             <div class="div"></div>
             <div class="frame-2"></div>
-            <div class="add-stop">Add<br/>Stop</div>
+            <button class="add-stop"
+                onclick="selectBuilding('${l.id}', true); addToRoute('${l.id}')">
+                Add<br/>Stop
         </button>
+    </div>
         <p class="location-name">
             <span class="text-wrapper">${l.name}<br/></span>
             <span class="span">${l.desc}<br/>Distance</span>
