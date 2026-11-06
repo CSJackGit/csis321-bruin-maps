@@ -76,8 +76,6 @@ function tagElements() {
     svg.querySelectorAll('[inkscape\\:label^="intersection_"]').forEach(element => {
         const key = element.getAttribute('inkscape:label').slice('intersection_'.length);
         element.classList.add('intersection');
-        element.dataset.key = key;
-        byKey[key] = element;
     });
 }
 
@@ -199,7 +197,7 @@ function initClicks(svg) {
     if (svg.dataset.dragged === 'true') { 
         svg.dataset.dragged = 'false'; return;
     }
-    const el = e.target.closest('.building, .path');
+    const el = e.target.closest('.building, .path, .intersection');
     if (el) 
         selectBuilding(el.dataset.key);
   });
