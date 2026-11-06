@@ -230,13 +230,13 @@ function selectBuilding(key, fly = false) {
 
 // Gets the current input from the search box
 const searchInput = document.querySelector('.search input');
-
+const MAX_DISPLAYED_LOCATIONS = 6;
 /**
  * Has templated html code for each search location appearing in the search list
  */
 function renderResults() {
     const filter = searchInput.value.trim().toLowerCase();
-    const newList = Object.entries(BUILDINGS).map(([id, b]) => ({ id, ...b})).filter(b=> b.name.toLowerCase().includes(filter));
+    const newList = Object.entries(BUILDINGS).map(([id, b]) => ({ id, ...b})).filter(b=> b.name.toLowerCase().includes(filter)).slice(0, MAX_DISPLAYED_LOCATIONS);
 
     document.getElementById('results').innerHTML = newList.map(l => `
         <div class="search-box-location" data-id="${l.id}">
