@@ -22,9 +22,30 @@
       {
         if (typeof(Storage) !== "undefined") 
         {
+          // @TODO Check if route has been added twice in a row
           const list = JSON.parse(localStorage.getItem("route")) || [];
           list.push(name);
           localStorage.setItem("route", JSON.stringify(list));
+
+          // @TODO Add route-index if route is included multiple times
+          // i.e (ehs-1, edwards-1, ehs-2, location-1, ehs-3) so that we can remove specific indexes not all at once
+          updateRouteContainer();
+        }
+        else
+        {
+          console.error("Browser doesn't support local storage!")
+        }
+      }
+
+      async function removeFromRoute(name)
+      {
+        if (typeof(Storage) !== "undefined") 
+        {
+          const list = JSON.parse(localStorage.getItem("route")) || [];
+
+          // This removes all instances of the route
+          const updated = list.filter(item => item !== name);
+          localStorage.setItem("route", JSON.stringify(updated));
           updateRouteContainer();
         }
         else

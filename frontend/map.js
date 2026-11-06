@@ -360,7 +360,7 @@ function updateRouteContainer()
             <span class="text-wrapper-3">${l.name}<br/></span>
             <span class="text-wrapper-4">${l.desc}</span>
             </p>
-            <button class="remove-stop" onclick="removeStop('${l.id}')" aria-label="Remove ${l.name}">
+            <button class="remove-stop" onclick="removeFromRoute('${l.id}')" aria-label="Remove ${l.name}">
             <div class="ellipse-2"></div>
             <div class="frame-3"></div>
             </button>

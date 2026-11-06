@@ -93,6 +93,18 @@
   line-height: normal;
 }
 
+.main-window .remove-stop {
+  position: absolute;
+  top: 11px;
+  left: 326px;
+  width: 34px;
+  height: 34px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
 .main-window .location-name {
   position: absolute;
   top: 20px;
@@ -166,8 +178,8 @@
 
 .main-window .ellipse-2 {
   position: absolute;
-  top: 11px;
-  left: 326px;
+  top: 0;
+  left: 0;
   width: 34px;
   height: 34px;
   background-color: #ff0000;
@@ -176,8 +188,8 @@
 
 .main-window .frame-3 {
   position: absolute;
-  top: 14px;
-  left: 341px;
+  top: 3px;
+  left: 15px;
   width: 4px;
   height: 30px;
   background-color: #ffffff;
