@@ -29,6 +29,7 @@ const BUILDINGS = {
   field:       { name: 'Lemmons Family Field',   desc: '' },
   alumni:      { name: 'Alumni Plaza',           desc: '' },
   stadium:     { name: 'Stoffer Family Stadium', desc: '' },
+  roy:         { name: 'Roy Apartments',         desc: 'Housing'},
 };
 
 //Map builde setup
