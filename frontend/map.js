@@ -72,7 +72,7 @@ function tagElements() {
         byKey[key] = element;
     });
 
-    svg.querySelectorAll('[inkscape\\:label^="path_"]').forEach(element => {
+    svg.querySelectorAll('[inkscape\\:label^="path"]').forEach(element => {
         const key = element.getAttribute('inkscape:label').slice('path_'.length);
         element.classList.add('path');
         element.dataset.key = key;
@@ -86,6 +86,11 @@ function tagElements() {
     svg.querySelectorAll('[inkscape\\:label^="intersection_"]').forEach(element => {
         const key = element.getAttribute('inkscape:label').slice('intersection_'.length);
         element.classList.add('intersection');
+    });
+
+    // Temp fix for paths with no data
+    svg.querySelectorAll('[inkscape\\:label="Paths-nodata"] path').forEach(element => {
+        element.classList.add('path', 'nodata');
     });
 }
 
