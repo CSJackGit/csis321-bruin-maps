@@ -23,6 +23,12 @@ const BUILDINGS = {
   chapel:     { name: 'Chapel',                 desc: '' },
 };
 
+//Map builde setup
+const mapBuild = {
+    nodes: {},
+    paths: {}
+}
+
 // LoadMap initializes the background canvas with information from the SVG
 async function loadMap() {
   const svgRes = await fetch('assets/campus.svg');
@@ -78,6 +84,28 @@ function tagElements() {
         element.classList.add('intersection');
     });
 }
+
+function buildMapbuild()
+{
+    mapGraph.nodes =  {};
+    mapGraph.paths = {};
+
+    svg.querySelectorAll('intersection').forEach(element => {
+
+        const id = element.getAttribute('inkscape:label').slice('intersection_'.length);
+
+        mapGraph.nodes[id] = {
+            id,
+            elements,
+            connections: []
+        };
+    });
+
+
+    
+}
+
+
 
 /**
  * Gets the bounding box, or viewable proportions of the svg and sets the actual svg to it's viewable size
