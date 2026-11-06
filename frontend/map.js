@@ -107,7 +107,7 @@ function bboxInRoot(element) {
     const pts = [[b.x, b.y], [b.x + b.width, b.y], [b.x, b.y + b.height], [b.x + b.width, b.y + b.height]]
         .map(([x, y]) => new DOMPoint(x, y).matrixTransform(m));
     const xs = pts.map(p => p.x), ys = pts.map(p => p.y);
-    return { x: Math.min(...xs), y: Math.min(...ys),  width: Math.max(...xs) - Math.min(...xs), fheight: Math.max(...ys) - Math.min(...ys) };
+    return { x: Math.min(...xs), y: Math.min(...ys),  width: Math.max(...xs) - Math.min(...xs), height: Math.max(...ys) - Math.min(...ys) };
 }
 
 /**
