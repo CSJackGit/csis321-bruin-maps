@@ -50,6 +50,9 @@ async function loadMap() {
   initPanZoom(svg);
   initClicks(svg);
   renderResults();
+
+  // Reset route between sessions.
+  localStorage.setItem("route", null);
 }
 
 /**
@@ -278,6 +281,27 @@ function renderResults() {
         </p>
         </div>`).join('');
 }
+
+function updateRouteContainer()
+{
+    const route = JSON.parse(localStorage.getItem("route")) || [];
+    const routeMap = route.map(key => ({ id: key, ...BUILDINGS[key] }));
+
+    document.getElementById('routes').innerHTML = (routeMap.length == 0)
+        ? '' : routeMap.map(l => `
+        <div class="route">
+            <p class="p">
+            <span class="text-wrapper-3">${l.name}<br/></span>
+            <span class="text-wrapper-4">${l.desc}</span>
+            </p>
+            <button class="remove-stop" onclick="removeStop('${l.id}')" aria-label="Remove ${l.name}">
+            <div class="ellipse-2"></div>
+            <div class="frame-3"></div>
+            </button>
+        </div>`).join('');
+}
+
+
 
 searchInput.addEventListener('input', renderResults);
 
