@@ -14,16 +14,25 @@
         <input type="text" placeholder="Search Bruin Maps..">
       </div>
       <div class="search-box" id="results"></div>
+      <div class="route-container" id="routes"></div>
     </div>
     
-
-
     <script>
-      async function addToRoute()
+      async function addToRoute(name)
       {
-        console.log("Added to route");
+        if (typeof(Storage) !== "undefined") 
+        {
+          const list = JSON.parse(localStorage.getItem("route")) || [];
+          list.push(name);
+          localStorage.setItem("route", JSON.stringify(list));
+          updateRouteContainer();
+        }
+        else
+        {
+          console.error("Browser doesn't support local storage!")
+        }
       }
-      
+
       async function loadMap() {
         const res = await fetch('assets/drawing3.svg');
         mapEl.innerHTML = await res.text();
