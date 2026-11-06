@@ -64,13 +64,20 @@ function tagElements() {
 
     svg.querySelectorAll('[inkscape\\:label^="path_"]').forEach(element => {
         const key = element.getAttribute('inkscape:label').slice('path_'.length);
-        element.classList.add("path");
+        element.classList.add('path');
         element.dataset.key = key;
     });
 
     svg.querySelectorAll('[inkscape\\:label^="name-"]').forEach(element => {
         element.classList.add('map-label');
         element.dataset.key = element.getAttribute('inkscape:label').slice('name-'.length);
+    });
+
+    svg.querySelectorAll('[inkscape\\:label^="intersection_"]').forEach(element => {
+        const key = element.getAttribute('inkscape:label').slice('intersection_'.length);
+        element.classList.add('intersection');
+        element.dataset.key = key;
+        byKey[key] = element;
     });
 }
 
@@ -100,7 +107,7 @@ function bboxInRoot(element) {
     const pts = [[b.x, b.y], [b.x + b.width, b.y], [b.x, b.y + b.height], [b.x + b.width, b.y + b.height]]
         .map(([x, y]) => new DOMPoint(x, y).matrixTransform(m));
     const xs = pts.map(p => p.x), ys = pts.map(p => p.y);
-    return { x: Math.min(...xs), y: Math.min(...ys),  width: Math.max(...xs) - Math.min(...xs), fheight: Math.max(...ys) - Math.min(...ys) };
+    return { x: Math.min(...xs), y: Math.min(...ys),  width: Math.max(...xs) - Math.min(...xs), height: Math.max(...ys) - Math.min(...ys) };
 }
 
 /**
@@ -223,25 +230,22 @@ function selectBuilding(key, fly = false) {
 
 // Gets the current input from the search box
 const searchInput = document.querySelector('.search input');
-
+const MAX_DISPLAYED_LOCATIONS = 6;
 /**
  * Has templated html code for each search location appearing in the search list
  */
 function renderResults() {
     const filter = searchInput.value.trim().toLowerCase();
-    const newList = Object.entries(BUILDINGS).map(([id, b]) => ({ id, ...b})).filter(b=> b.name.toLowerCase().includes(filter));
+    const newList = Object.entries(BUILDINGS).map(([id, b]) => ({ id, ...b})).filter(b=> b.name.toLowerCase().includes(filter)).slice(0, MAX_DISPLAYED_LOCATIONS);
 
     document.getElementById('results').innerHTML = newList.map(l => `
         <div class="search-box-location" data-id="${l.id}">
-        <div class="frame">
+        <button class="frame" onclick="addToRoute('${l.id}')">
             <div class="ellipse"></div>
             <div class="div"></div>
             <div class="frame-2"></div>
-            <button class="add-stop"
-                onclick="selectBuilding('${l.id}', true); addToRoute('${l.id}')">
-                Add<br/>Stop
+            <div class="add-stop">Add<br/>Stop</div>
         </button>
-    </div>
         <p class="location-name">
             <span class="text-wrapper">${l.name}<br/></span>
             <span class="span">${l.desc}<br/>Distance</span>

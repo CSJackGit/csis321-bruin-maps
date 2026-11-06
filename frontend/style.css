@@ -389,3 +389,7 @@ html, body { width: 100%; height: 100%; margin: 0; height: 100%; overflow: hidde
 #map .path {cursor: pointer; transition: fill .15s; }
 #map .path:hover {fill: #ff00f2 !important;}
 #map .path.selected {fill: #000000 !important;}
+
+#map .intersection {cursor: pointer; transition: fill .15s; }
+#map .intersection:hover {fill: #ff00f2 !important; }
+#map .intersection.selected {fill: #000000 !important; }
