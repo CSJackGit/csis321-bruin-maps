@@ -10,18 +10,25 @@ const byKey = {};
 
 // Building name to descriptions
 const BUILDINGS = {
-  library:    { name: 'Murdock Library',        desc: 'Library' },
-  bauman:     { name: 'Bauman Auditorium',      desc: '' },
-  stevens:    { name: 'Stevens Center',         desc: '' },
-  pennington: { name: 'Pennington Hall',        desc: 'Residence hall' },
-  arts:       { name: 'Arts & Cinematic Arts',  desc: '' },
-  klages:     { name: 'Klages',                 desc: '' },
-  hoover:     { name: 'Hoover',                 desc: '' },
-  ehs:        { name: 'EHS',                    desc: '' },
-  lemmons:    { name: 'Lemmons Center',         desc: '' },
-  minthorn:   { name: 'Minthorn Hall',          desc: '' },
-  chapel:     { name: 'Chapel',                 desc: '' },
-  edwards:    { name: 'Edwards Hall',           desc: 'Residence hall' },
+  library:     { name: 'Murdock Library',        desc: 'Library' },
+  bauman:      { name: 'Bauman Auditorium',      desc: '' },
+  stevens:     { name: 'Stevens Center',         desc: '' },
+  pennington:  { name: 'Pennington Hall',        desc: 'Residence hall' },
+  arts:        { name: 'Arts & Cinematic Arts',  desc: '' },
+  klages:      { name: 'Klages',                 desc: '' },
+  hoover:      { name: 'Hoover',                 desc: '' },
+  ehs:         { name: 'EHS',                    desc: '' },
+  lemmons:     { name: 'Lemmons Center',         desc: '' },
+  minthorn:    { name: 'Minthorn Hall',          desc: '' },
+  chapel:      { name: 'Chapel',                 desc: '' },
+  edwards:     { name: 'Edwards Hall',           desc: 'Residence hall' },
+  wheelersc:   { name: 'Wheeler Sports Center',  desc: '' },
+  dac:         { name: 'Duke Athletic Center',   desc: '' },
+  amphitheater:{ name: 'Amphitheater',           desc: '' },
+  track:       { name: 'Lemmons Field - Track',  desc: '' },
+  field:       { name: 'Lemmons Family Field',   desc: '' },
+  alumni:      { name: 'Alumni Plaza',           desc: '' },
+  stadium:     { name: 'Stoffer Family Stadium', desc: '' },
 };
 
 //Map builde setup
@@ -100,6 +107,7 @@ function buildMapbuild()
     mapBuild.nodes =  {};
     mapBuild.paths = {};
 
+    //Creating a system for path building
     svg.querySelectorAll('.intersection').forEach(element => {
 
         const id = element.getAttribute('inkscape:label').slice('intersection_'.length);
@@ -372,8 +380,12 @@ function updateRouteContainer()
 
 searchInput.addEventListener('input', renderResults);
 
+//Drop down menu for the search box
 const searchBox = document.querySelector('.search-box');
 
+/**
+ * Drops down items based on letter imput
+ */
 searchInput.addEventListener('input', () => {
     const filter = searchInput.value.trim().toLowerCase();
 
@@ -386,6 +398,7 @@ searchInput.addEventListener('input', () => {
     searchBox.classList.toggle('active', hasMatches);
 });
 
+//Removing the box if the screen is clicked anywhere
 document.addEventListener('click', (e) => {
     if (!e.target.closest('.search') && !e.target.closest('.search-box'))
     {
