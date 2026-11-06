@@ -46,6 +46,7 @@ async function loadMap() {
   svg.removeAttribute('height');
 
   tagElements();
+  buildMapbuild();
   fitToContent();
   initPanZoom(svg);
   initClicks(svg);
@@ -90,22 +91,83 @@ function tagElements() {
 
 function buildMapbuild()
 {
-    mapGraph.nodes =  {};
-    mapGraph.paths = {};
+    mapBuild.nodes =  {};
+    mapBuild.paths = {};
 
-    svg.querySelectorAll('intersection').forEach(element => {
+    svg.querySelectorAll('.intersection').forEach(element => {
 
         const id = element.getAttribute('inkscape:label').slice('intersection_'.length);
 
-        mapGraph.nodes[id] = {
+        mapBuild.nodes[id] = {
             id,
-            elements,
+            element,
             connections: []
         };
     });
 
+    svg.querySelectorAll('.path').forEach(element => {
 
-    
+        const id = element.dataset.key;
+        const length = element.getTotalLength();
+        const start = element.getPointAtLength(0);
+        const end = element.getPointAtLength(length);
+
+        function nearestNode(point)
+        {
+            let nearest = null;
+            let minDistance = Infinity;
+
+            Object.values(mapBuild.nodes).forEach(node => {
+                const bounds = node.element.getBBox();
+                const center = 
+                {
+                    x: bounds.x + bounds.width / 2,
+                    y: bounds.y + bounds.height / 2
+                };
+                const distance = Math.hypot(
+                    point.x - center.x,
+                    point.y - center.y
+                );
+
+                if(distance < minDistance)
+                {
+                    minDistance = distance;
+                    nearest = node;
+                }
+            });
+
+            return nearest;
+        }
+
+        const from = nearestNode(start);
+        const to = nearestNode(end);
+
+        if(!from || !to || from.id == to.id) return;
+
+        mapBuild.paths[id] = 
+        {
+            id,
+            element,
+            from: from.id,
+            to: to.id,
+            length
+        }
+
+        from.connections.push({
+            path: id,
+            node: to.id,
+            cost: length
+        });
+
+        to.connections.push({
+            path: id,
+            node: from.id,
+            cost: length
+        });
+
+    });
+
+    console.log('Map Graph:', mapBuild);    
 }
 
 
