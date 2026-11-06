@@ -64,13 +64,20 @@ function tagElements() {
 
     svg.querySelectorAll('[inkscape\\:label^="path_"]').forEach(element => {
         const key = element.getAttribute('inkscape:label').slice('path_'.length);
-        element.classList.add("path");
+        element.classList.add('path');
         element.dataset.key = key;
     });
 
     svg.querySelectorAll('[inkscape\\:label^="name-"]').forEach(element => {
         element.classList.add('map-label');
         element.dataset.key = element.getAttribute('inkscape:label').slice('name-'.length);
+    });
+
+    svg.querySelectorAll('[inkscape\\:label^="intersection_"]').forEach(element => {
+        const key = element.getAttribute('inkscape:label').slice('intersection_'.length);
+        element.classList.add('intersection');
+        element.dataset.key = key;
+        byKey[key] = element;
     });
 }
 
@@ -233,15 +240,12 @@ function renderResults() {
 
     document.getElementById('results').innerHTML = newList.map(l => `
         <div class="search-box-location" data-id="${l.id}">
-        <div class="frame">
+        <button class="frame" onclick="addToRoute('${l.id}')">
             <div class="ellipse"></div>
             <div class="div"></div>
-            <div class="frame-2"></div>
-            <button class="add-stop"
-                onclick="selectBuilding('${l.id}', true); addToRoute('${l.id}')">
-                Add<br/>Stop
+            <div class="frame-2">
+            <div class="add-stop">Add<br/>Stop</div>
         </button>
-    </div>
         <p class="location-name">
             <span class="text-wrapper">${l.name}<br/></span>
             <span class="span">${l.desc}<br/>Distance</span>
