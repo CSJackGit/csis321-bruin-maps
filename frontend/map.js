@@ -243,7 +243,7 @@ function renderResults() {
         <button class="frame" onclick="addToRoute('${l.id}')">
             <div class="ellipse"></div>
             <div class="div"></div>
-            <div class="frame-2">
+            <div class="frame-2"></div>
             <div class="add-stop">Add<br/>Stop</div>
         </button>
         <p class="location-name">
