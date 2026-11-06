@@ -171,7 +171,6 @@ function buildMapbuild()
 }
 
 
-
 /**
  * Gets the bounding box, or viewable proportions of the svg and sets the actual svg to it's viewable size
  * @param {*} pad padding added to outside of
@@ -366,6 +365,27 @@ function updateRouteContainer()
 
 
 searchInput.addEventListener('input', renderResults);
+
+const searchBox = document.querySelector('.search-box');
+
+searchInput.addEventListener('input', () => {
+    const filter = searchInput.value.trim().toLowerCase();
+
+    renderResults();
+
+    const hasMatches = Object.values(BUILDINGS).some(b =>
+        b.name.toLowerCase().includes(filter) && filter !== ''
+    );
+
+    searchBox.classList.toggle('active', hasMatches);
+});
+
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.search') && !e.target.closest('.search-box'))
+    {
+        searchBox.classList.remove('active');
+    }
+});
 
 /**
  * Gets an svg element by id
