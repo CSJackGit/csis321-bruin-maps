@@ -82,7 +82,7 @@ function tagElements() {
     });
 
     svg.querySelectorAll('[inkscape\\:label^="path"]').forEach(element => {
-        const key = element.getAttribute('inkscape:label').slice('path_'.length);
+        const key = element.getAttribute('inkscape:label').slice('path'.length);
         element.classList.add('path');
         element.dataset.key = key;
     });
