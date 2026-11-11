@@ -17,7 +17,7 @@ const BUILDINGS = {
   arts:        { name: 'Arts & Cinematic Arts',  desc: '' },
   klages:      { name: 'Klages',                 desc: '' },
   hoover:      { name: 'Hoover',                 desc: '' },
-  ehs:         { name: 'EHS',                    desc: '' },
+  ehs:         { name: 'EHS',                    desc: 'Edwards-Holman Science Center' },
   lemmons:     { name: 'Lemmons Center',         desc: '' },
   minthorn:    { name: 'Minthorn Hall',          desc: '' },
   chapel:      { name: 'Chapel',                 desc: '' },
