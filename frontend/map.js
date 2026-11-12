@@ -17,7 +17,7 @@ const BUILDINGS = {
   arts:        { name: 'Arts & Cinematic Arts',  desc: '' },
   klages:      { name: 'Klages',                 desc: '' },
   hoover:      { name: 'Hoover',                 desc: '' },
-  ehs:         { name: 'EHS',                    desc: '' },
+  ehs:         { name: 'EHS',                    desc: 'Edwards-Holman Science Center' },
   lemmons:     { name: 'Lemmons Center',         desc: '' },
   minthorn:    { name: 'Minthorn Hall',          desc: '' },
   chapel:      { name: 'Chapel',                 desc: '' },
@@ -82,7 +82,7 @@ function tagElements() {
     });
 
     svg.querySelectorAll('[inkscape\\:label^="path"]').forEach(element => {
-        const key = element.getAttribute('inkscape:label').slice('path_'.length);
+        const key = element.getAttribute('inkscape:label').slice('path'.length);
         element.classList.add('path');
         element.dataset.key = key;
     });
