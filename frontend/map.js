@@ -30,6 +30,7 @@ const BUILDINGS = {
   alumni:      { name: 'Alumni Plaza',           desc: 'Mama Bear' },
   stadium:     { name: 'Stoffer Family Stadium', desc: 'Stadium' },
   roy:         { name: 'Roy Apartments',         desc: 'Housing'},
+  ross:        { name: 'Ross Center',        desc: 'Academic Building'},
 };
 
 //Map builde setup
