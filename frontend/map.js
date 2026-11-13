@@ -92,9 +92,9 @@ function tagElements() {
         element.dataset.key = element.getAttribute('inkscape:label').slice('name-'.length);
     });
 
-    svg.querySelectorAll('[inkscape\\:label^="intersection_"]').forEach(element => {
-        const key = element.getAttribute('inkscape:label').slice('intersection_'.length);
-        element.classList.add('intersection');
+    svg.querySelectorAll('[inkscape\\:label^="node"]').forEach(element => {
+        const key = element.getAttribute('inkscape:label').slice('node'.length);
+        element.classList.add('node');
     });
 
     // Temp fix for paths with no data
