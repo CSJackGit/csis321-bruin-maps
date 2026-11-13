@@ -14,7 +14,7 @@
   top: 143px;
   display: flex;
   width: 435px;
-  position: absolute;
+  position: fixed;
   left: 23px;
   background-color: #d7d7d7;
   border: 10px solid;
@@ -128,7 +128,7 @@
 }
 
 .main-window .search {
-  position: absolute;
+  position: fixed;
   top: 26px;
   left: 23px;
   width: 435px;
@@ -366,10 +366,10 @@ html, body { width: 100%; height: 100%; margin: 0; height: 100%; overflow: hidde
   height: 100dvh;
   background: #e8efe8;
   overflow: hidden;
-  touch-action: none;
+  touch-action: auto;
 }
 
-#map svg { width: 100%; height: 100%; display: block; touch-action: none; }
+#map svg { width: 100%; height: 100%; display: block; touch-action: auto; }
 
 #map .map-label
 {
@@ -417,7 +417,7 @@ html, body { width: 100%; height: 100%; margin: 0; height: 100%; overflow: hidde
 #map .node.selected {fill: #000000 !important; }
 
 .main-window .search{
-  position: absolute;
+  position: fixed;
   top: 26px;
   left: 23px;
   z-index: 1000;
@@ -425,7 +425,7 @@ html, body { width: 100%; height: 100%; margin: 0; height: 100%; overflow: hidde
 
 .main-window .search-box
 {
-  position: absolute;
+  position: fixed;
   top: 81px;
   left: 23px;
   width: 435px;
@@ -447,4 +447,50 @@ html, body { width: 100%; height: 100%; margin: 0; height: 100%; overflow: hidde
 .main-window .search-box-location
 {
   flex-shrink: 0;
+}
+
+.zoomable-element 
+{
+  touch-action: pinch-zoom;
+}
+
+.main-window
+{
+  min-width: 0 !important;
+  min-height: 0 !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  position: fixed;
+  inset: 0;
+}
+
+.main-window .search
+{
+  position: fixed !important;
+  top: 16px !important;
+  left: 16px !important;
+  width: calc(100vw - 32px) !important;
+  max-width: 435px !important;
+  z-index: 1000;
+}
+
+.main-window .search input
+{
+  font-size: 16px !important;
+}
+
+.main-window .search-box
+{
+  position: fixed !important;
+  top: 71px !important;
+  left: 16px !important;
+  width: calc(100vw - 32px) !important;
+  max-width: 435px !important;
+  max-height: 45dvh;
+  z-index: 999;
+}
+
+#map, #map svg
+{
+  touch-action: none !important;
 }
