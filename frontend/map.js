@@ -219,7 +219,8 @@ function bboxInRoot(element) {
  * Rewrites the veiwbox of the svg in response to mouse input.
  * @param {*} svg input svg to zoom/pan to
  */
-function initPanZoom(svg) {
+function initPanZoom(svg) 
+{
     // See https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 
     const viewbox = svg.viewBox.baseVal;
@@ -249,38 +250,121 @@ function initPanZoom(svg) {
     { passive: false });
 
     // Only capture the pointer once a real drag starts, so plain clicks still hit the building
+    let pointers = new Map();
+    let lastDistance = null;
     let drag = null;
+
     svg.addEventListener('pointerdown', e => {
-        drag = { x: e.clientX, y: e.clientY, id: e.pointerId, moved: false };
+        pointers.set(e.pointerId, { x: e.clientX, y: e.clientY
+        });
+
+        if(pointers.size === 1)
+        {
+            drag = {
+                x: e.clientX,
+                y: e.clientY,
+                id: e.pointerId,
+                moved: false
+            };
+        }
+
+        if(pointers.size === 2) 
+        {
+            const pts = Array.from(pointers.values());
+
+            lastDistance = Math.hypot(
+                pts[0].x - pts[1].x,
+                pts[0].y - pts[1].y
+            );
+
+            drag = null;
+        }
     });
 
     // Whenever you click and move with your mouse, it will find the change in position of the x/y coordinates and apply them to the svg
     svg.addEventListener('pointermove', e => {
-        if (!drag) 
+        if (!pointers.has(e.pointerId)) return; 
+
+        pointers.set(e.pointerId, {
+            x: e.clientX,
+            y: e.clientY
+        });
+
+        const pts = Array.from(pointers.values());
+
+        if(pts.length === 2)
+        {
+            const newDistance = Math.hypot(
+                pts[0].x - pts[1].x,
+                pts[0].y - pts[1].y
+            );
+
+            if(lastDistance && newDistance > 0)
+            {
+                const factor = lastDistance / newDistance;
+
+                const centerX = (pts[0].x + pts[1].x) / 2;
+                const centerY = (pts[0].y + pts[1].y) / 2;
+
+                const p = toSvg(centerX, centerY);
+
+                const newW = Math.min(
+                    Math.max(view.w * factor, home.w / 20),
+                    home.w * 1.5
+                );
+
+                const k = newW / view.w;
+
+                view.x = p.x - (p.x - view.x) * k;
+                view.y = p.y - (p.y - view.y) * k;
+
+                view.w = newW;
+                view.h = newW * (home.h / home.w);
+
+                apply();
+            }
+
+            lastDistance = newDistance;
             return;
-        const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
-        if (!drag.moved) {
-            if (Math.abs(dx) + Math.abs(dy) < 4) 
-                return;
-            drag.moved = true;
-            svg.setPointerCapture(drag.id);
         }
-        const { scale } = toSvg(0, 0);
-        view.x -= dx * scale; view.y -= dy * scale;
-        drag.x = e.clientX; drag.y = e.clientY;
-        apply();
+
+        if(pts.length === 1 && drag)
+        {
+            const dx = e.clientX - drag.x;
+            const dy = e.clientY - drag.y;
+
+            if(Math.abs(dx) + Math.abs(dy) > 0){
+                drag.moved = true;
+            }
+
+            const scale = view.w / svg.getBoundingClientRect().width;
+
+            view.x -= dx * scale;
+            view.y -= dy * scale;
+
+            drag.x = e.clientX;
+            drag.y = e.clientY;
+
+            apply();
+        }
+        
     });
 
     // When you stop clicking
-    svg.addEventListener('pointerup', () => {
-        svg.dataset.dragged = drag?.moved ? 'true' : 'false';
-        drag = null;
-    });
+    function endPointer(e)
+    {
+        if(drag && drag.id === e.pointerId)
+        {
+            svg.dataset.dragged = drag.moved ? 'true' : 'false';
+        }
 
-    // When you leave the screen while clicking
-    svg.addEventListener('pointercancel', () => { 
-        drag = null; 
-    });
+        pointers.delete(e.pointerId);
+        drag = null;
+        lastDistance = null;
+    }
+
+    svg.addEventListener('pointerup', endPointer);
+    svg.addEventListener('pointercancel', endPointer);
 
     // An external way to select a building (i.e. searching locations)
     svg.flyTo = (el) => {
@@ -294,7 +378,6 @@ function initPanZoom(svg) {
         apply();
     };
 }
-
 /**
  * Handles selecting a building without it being a pan
  * @param {*} svg input svg 

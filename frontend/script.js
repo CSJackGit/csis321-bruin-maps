@@ -96,3 +96,49 @@ document.getElementById('rect2189').addEventListener('click', function(e) {
     // 2. Assign active state rule directly to the targeted clicked rectangle element
     this.classList.add('is-destination');
 });
+
+
+let drag = null;
+    svg.addEventListener('pointerdown', e => {
+        drag = { x: e.clientX, y: e.clientY, id: e.pointerId, moved: false };
+    });
+
+    // Whenever you click and move with your mouse, it will find the change in position of the x/y coordinates and apply them to the svg
+    svg.addEventListener('pointermove', e => {
+        if (!drag) 
+            return;
+        const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+        if (!drag.moved) {
+            if (Math.abs(dx) + Math.abs(dy) < 4) 
+                return;
+            drag.moved = true;
+            svg.setPointerCapture(drag.id);
+        }
+        const { scale } = toSvg(0, 0);
+        view.x -= dx * scale; view.y -= dy * scale;
+        drag.x = e.clientX; drag.y = e.clientY;
+        apply();
+    });
+
+    // When you stop clicking
+    svg.addEventListener('pointerup', () => {
+        svg.dataset.dragged = drag?.moved ? 'true' : 'false';
+        drag = null;
+    });
+
+    // When you leave the screen while clicking
+    svg.addEventListener('pointercancel', () => { 
+        drag = null; 
+    });
+
+    // An external way to select a building (i.e. searching locations)
+    svg.flyTo = (el) => {
+        const b = bboxInRoot(el);
+        const aspect = view.w / view.h;
+        const pad = Math.max(b.width, b.height) * 3;
+        view.w = Math.max(b.width + pad, (b.height + pad) * aspect);
+        view.h = view.w / aspect;
+        view.x = b.x + b.width / 2 - view.w / 2;
+        view.y = b.y + b.height / 2 - view.h / 2;
+        apply();
+    };
