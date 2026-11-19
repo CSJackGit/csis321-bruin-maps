@@ -13,7 +13,7 @@ const BUILDINGS = {
   library:     { name: 'Murdock Library',        desc: 'Library' },
   bauman:      { name: 'Bauman Auditorium',      desc: 'Auditorium' },
   stevens:     { name: 'Stevens Center',         desc: 'Student Center' },
-  pennington:  { name: 'Pennington Hall',        desc: 'Residence hall' },
+  penningtonha:{ name: 'Pennington Hall',        desc: 'Residence hall' },
   arts:        { name: 'Arts & Cinematic Arts',  desc: 'Art Building' },
   klages:      { name: 'Klages',                 desc: 'Academic Building' },
   hoover:      { name: 'Hoover',                 desc: 'Academic Building' },
@@ -69,9 +69,22 @@ const BUILDINGS = {
   millage:     { name: "Millage Building",       desc: 'Finance'},
   wilder:      { name: "Wilder House",           desc: 'Housing'},
   hms:         { name: "HMS",                    desc: 'Housing'},
+  mcconaughey: { name: "McConaughey House",      desc: 'Housing'},
+  rutherford:  { name: "Rutherford Apartments",  desc: 'Housing'},
+  penningtonho:{ name: "Pennington House",       desc: 'Honors Building'},
+  thornburg:   { name: "Thornburg House",        desc: 'Academic Affairs'},
+  winters:     { name: "Winters Apartments",     desc: 'Housing'},
+  hoskins:     { name: "Hoskins House",          desc: 'Housing'},
+  hester:      { name: "Hester House",           desc: 'Housing'},
+  irc:         { name: "IRC",                    desc: 'Intercultural Resource Center'},
+  hodgins:     { name: "Hodgin Studio",          desc: 'Art Studio'},
+  hodginh:     { name: "Hodgin House",           desc: 'Housing'},
+  parker:      { name: "Parker Duplex",          desc: 'Housing'},
+  fry:         { name: "Fry House",              desc: 'Academic Building'},
+  health:      { name: "Health and Counseling Center", desc: 'Health and Counseling'},
 };
 
-//Map builde setup
+//Map build setup
 const mapBuild = {
     nodes: {},
     paths: {}
