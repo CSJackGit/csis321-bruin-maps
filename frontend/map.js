@@ -94,6 +94,7 @@ const BUILDINGS = {
   Morse:       { name: "Morse Athletic Fields",  desc: 'Athletic Fields'},
   thomas:      { name: "Thomas Center",          desc: 'Plant Services'},
   holtan:      { name: "Holtan House",            desc: 'Housing'},
+  cole:        { name: "Cole House",              desc: 'Housing'},
 };
 
 //Map build setup
