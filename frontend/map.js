@@ -82,6 +82,18 @@ const BUILDINGS = {
   parker:      { name: "Parker Duplex",          desc: 'Housing'},
   fry:         { name: "Fry House",              desc: 'Academic Building'},
   health:      { name: "Health and Counseling Center", desc: 'Health and Counseling'},
+  beals:       { name: "Beals House",            desc: 'Psychology Building'},
+  lamm:        { name: "Lamm Duplex",            desc: 'Housing'},
+  mcgrew:      { name: "McGrew House",           desc: 'Housing'},
+  hancock:     { name: "Hancock StreetHouse",    desc: 'Housing'},
+  woolman:     { name: "Woolman Apartments",     desc: 'Housing'},
+  chapman:     { name: "Chapman House",          desc: 'Housing'},
+  riley:       { name: "Riley House",            desc: 'Housing'},
+  hiebert:     { name: "Hiebert House",          desc: 'Campus Public Safety'},
+  fell:        { name: "Fell House",             desc: 'Housing'},
+  Morse:       { name: "Morse Athletic Fields",  desc: 'Athletic Fields'},
+  thomas:      { name: "Thomas Center",          desc: 'Plant Services'},
+  holtan:      { name: "Holtan House",            desc: 'Housing'},
 };
 
 //Map build setup
